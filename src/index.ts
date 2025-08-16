@@ -8,14 +8,18 @@ dotenv.config();
 const app = express();
 
 const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 5174;
-const ORIGIN = process.env.ORIGIN || 'https://currency-converter-frontend-nu.vercel.app/';
+const ORIGIN = process.env.ORIGIN || 'https://currency-converter-frontend-nu.vercel.app';
 const API_KEY = process.env.FREECURRENCY_API_KEY;
 
 if (!API_KEY) {
   console.warn('WARNING: FREECURRENCY_API_KEY is not set. Set it in your .env file.');
 }
 
-app.use(cors({ origin: ORIGIN }));
+app.use(cors({
+  origin: 'https://currency-converter-frontend-nu.vercel.app',
+  methods: ['GET','POST','PUT','DELETE'],
+  credentials: true
+}));
 app.use(express.json());
 
 const BASE_URL = 'https://api.freecurrencyapi.com/v1';
