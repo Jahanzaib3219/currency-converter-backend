@@ -8,7 +8,7 @@ dotenv.config();
 const app = express();
 
 const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 5174;
-const ORIGIN = process.env.ORIGIN || 'http://localhost:5173';
+const ORIGIN = process.env.ORIGIN || 'https://currency-converter-frontend-nu.vercel.app/';
 const API_KEY = process.env.FREECURRENCY_API_KEY;
 
 if (!API_KEY) {
